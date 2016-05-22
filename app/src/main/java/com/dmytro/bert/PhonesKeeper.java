@@ -63,9 +63,10 @@ public class PhonesKeeper {
      * @param ownersName name of phone number owner
      * @return (for now) string containing phone number
      */
-    public String getNumber(String ownersName){
+/*    public String getNumber(String ownersName){
         String number;
         //todo: find out what number format is needed to call someone, so could parse string to this format
         return number;
     }
+    */
 }

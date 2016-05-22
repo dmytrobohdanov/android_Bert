@@ -16,19 +16,19 @@ public class LocationsKeeper {
     /**
      * returning current location of user
      */
-    public location getCurrentLocation(){
+  /*  public location getCurrentLocation(){
         return myLocationl;
     }
-
+*/
     /**
      * returning location of nearest police, hospital, etc
      *
      * @param key name of unit we are looking for
      */
-    public location getNearest(String key){
+ /*   public location getNearest(String key){
 
     }
-
+*/
 
     /**
      * Shows map with way to specified unit(s)
