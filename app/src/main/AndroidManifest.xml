@@ -15,6 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".emergencyServices.MainActivity"
+            android:label="Список телефонов">
+        </activity>
     </application>
 
 </manifest>
