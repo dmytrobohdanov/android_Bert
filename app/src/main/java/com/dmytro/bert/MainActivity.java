@@ -11,8 +11,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import java.util.HashMap;
-
 public class MainActivity extends AppCompatActivity {
     //setting constants
     public static final String POLICE = "police";
@@ -27,9 +25,18 @@ public class MainActivity extends AppCompatActivity {
         final PhonesKeeper phonesKeeper = PhonesKeeper.getInstance(this);
 
         //temp adding to phonebook:
-        phonesKeeper.addNumber(POLICE, "111");
+        phonesKeeper.addPhoneNumber(POLICE, "111");
 
-        //todo start settings activity on settings button clicked
+        //set onClick to Settings button which opens settings activity
+        Button settingsButton = (Button) this.findViewById(R.id.settingsButton);
+        assert settingsButton != null;
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         //temp part just for testing
         {
@@ -40,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(Intent.ACTION_CALL);
-                    intent.setData(Uri.parse(phonesKeeper.getNumber(POLICE)));
+                    intent.setData(Uri.parse(phonesKeeper.getPhoneNumber(POLICE)));
 
                     if (ActivityCompat.checkSelfPermission(v.getContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                         Log.d("MainActivity", "Have no permission to call");

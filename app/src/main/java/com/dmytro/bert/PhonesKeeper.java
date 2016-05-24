@@ -44,7 +44,7 @@ public class PhonesKeeper {
      * @param ownersName  of number's owner
      * @param phoneNumber actually phone number
      */
-    public void addNumber(String ownersName, String phoneNumber) {
+    public void addPhoneNumber(String ownersName, String phoneNumber) {
         phoneBook.put(ownersName, reformatNumberToCall(phoneNumber));
     }
 
@@ -64,7 +64,7 @@ public class PhonesKeeper {
      *
      * @param ownersName owner of phone number
      */
-    public void deleteNumber(String ownersName) {
+    public void deletePhoneNumber(String ownersName) {
         phoneBook.remove(ownersName);
     }
 
@@ -84,7 +84,7 @@ public class PhonesKeeper {
      * @param ownersName name of phone number owner
      * @return string containing phone number
      */
-    public String getNumber(String ownersName) {
+    public String getPhoneNumber(String ownersName) {
         return phoneBook.get(ownersName);
     }
 

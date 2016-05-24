@@ -3,4 +3,8 @@
     <string name="SettingsButtonTitle">Settings</string>
     <string name="DialUpSettings">Dial up settings:</string>
     <string name="showPhoneBook">show phone book</string>
+    <string name="PhoneFieldHint">phone number</string>
+    <string name="NameFieldHint">Name</string>
+    <string name="addNewEntry">add new entry</string>
+    <string name="addToPhonebookButton">add</string>
 </resources>
