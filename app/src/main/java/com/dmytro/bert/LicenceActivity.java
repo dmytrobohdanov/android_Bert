@@ -1,7 +1,8 @@
-package com.dmytro.bert;
-
-/**
- * Created by user on 22.05.2016.
- */
-public class LicenceActivity {
-}
+//package com.dmytro.bert;
+//
+///**
+// * keeps text of usage agreement
+// */
+//public class LicenceActivity {
+//    //that we are not responsible for anything :-)
+//}

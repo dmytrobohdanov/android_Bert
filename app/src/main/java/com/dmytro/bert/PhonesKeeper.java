@@ -1,6 +1,7 @@
 package com.dmytro.bert;
 
 import android.content.Context;
+
 import java.util.HashMap;
 
 /**
@@ -20,10 +21,9 @@ public class PhonesKeeper {
      *
      * @param context context
      */
-    private PhonesKeeper (Context context){
-        //get phone numbers from DB
+    private PhonesKeeper(Context context) {
+        phoneBook = new HashMap<>();
     }
-
 
     /**
      * Ruturning instance of PhonesKeeper
@@ -31,8 +31,8 @@ public class PhonesKeeper {
      * @param context context
      * @return instance of PhonesKeeper
      */
-    public static PhonesKeeper getInstance(Context context){
-        if(instance == null){
+    public static PhonesKeeper getInstance(Context context) {
+        if (instance == null) {
             instance = new PhonesKeeper(context);
         }
         return instance;
@@ -41,11 +41,22 @@ public class PhonesKeeper {
     /**
      * Adds new number to base
      *
-     * @param ownersName of number's owner
+     * @param ownersName  of number's owner
      * @param phoneNumber actually phone number
      */
-    public void addNumber(String ownersName, String phoneNumber){
+    public void addNumber(String ownersName, String phoneNumber) {
+        phoneBook.put(ownersName, reformatNumberToCall(phoneNumber));
+    }
 
+    /**
+     * Reformats phone number from user's format to android's
+     * adds "tel:" to it
+     *
+     * @param phoneNumber in user's format
+     * @return phone number in format "uselble" to call it from activity
+     */
+    private String reformatNumberToCall(String phoneNumber) {
+        return "tel:" + phoneNumber;
     }
 
     /**
@@ -53,19 +64,41 @@ public class PhonesKeeper {
      *
      * @param ownersName owner of phone number
      */
-    public void deleteNumber(String ownersName){
+    public void deleteNumber(String ownersName) {
+        phoneBook.remove(ownersName);
+    }
 
+    /**
+     * Checks is there specified name in phone book
+     *
+     * @param ownersName needs to be checked
+     * @return true if there is already such name in base
+     */
+    public boolean hasName(String ownersName) {
+        return phoneBook.containsKey(ownersName);
     }
 
     /**
      * Getting phone number of specified person
      *
      * @param ownersName name of phone number owner
-     * @return (for now) string containing phone number
+     * @return string containing phone number
      */
-    public String getNumber(String ownersName){
-        String number;
-        //todo: find out what number format is needed to call someone, so could parse string to this format
-        return number;
+    public String getNumber(String ownersName) {
+        return phoneBook.get(ownersName);
+    }
+
+    /**
+     * todo will do later
+     */
+    public int getPhoneBookSize(){
+        return phoneBook.size();
+    }
+
+    /**
+     * todo: temp method, rethink this
+     */
+    public HashMap<String, String> getPhoneBook(){
+        return phoneBook;
     }
 }
