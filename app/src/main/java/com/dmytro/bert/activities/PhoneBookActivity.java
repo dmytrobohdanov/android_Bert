@@ -1,4 +1,4 @@
-package com.dmytro.bert;
+package com.dmytro.bert.activities;
 
 import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.dmytro.bert.PhonesKeeper;
+import com.dmytro.bert.R;
 
 import java.util.HashMap;
 import java.util.Map;

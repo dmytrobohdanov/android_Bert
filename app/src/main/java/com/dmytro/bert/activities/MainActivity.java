@@ -1,4 +1,4 @@
-package com.dmytro.bert;
+package com.dmytro.bert.activities;
 
 import android.Manifest;
 import android.content.Intent;
@@ -11,6 +11,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.dmytro.bert.PhonesKeeper;
+import com.dmytro.bert.R;
+
 public class MainActivity extends AppCompatActivity {
     //setting constants
     public static final String POLICE = "police";
@@ -20,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //todo: set swipe listener: right - video activity start, left - notification sender activity start
+
+        //todo: refactor this hell
 
         //get phone book
         final PhonesKeeper phonesKeeper = PhonesKeeper.getInstance(this);
