@@ -2,12 +2,14 @@ package com.dmytro.bert;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
 /**
@@ -18,6 +20,7 @@ public class SettingsActivity extends AppCompatActivity {
     private final int VIEW_SWITCHER_ID = R.id.viewSwitcher;
     private final int ADD_NEW_ENTRY_BUTTON_ID = R.id.addNewPhonenumber;
     private final int ADD_TO_PHONEBOOK_SUBMIT_BUTTON_ID = R.id.addToPhoneBookButton;
+    private final int SHOW_PHONEBOOK_VIEW = R.id.showPhoneBook;
 
     private ViewSwitcher viewSwitcher;
     private Button addNewEntryToPhonebook;
@@ -31,6 +34,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         setAddPhoneNumberBlock(this);
 
+        initializeShowPhonebookBlock(this);
 
         //should do:
         //
@@ -50,6 +54,24 @@ public class SettingsActivity extends AppCompatActivity {
         //
     }
 
+    /**
+     * Sets onClick listener to TextView
+     * onClick shows activity with phonebook
+     *
+     * @param activity
+     */
+    private void initializeShowPhonebookBlock(Activity activity) {
+        TextView showPhonebook = (TextView) activity.findViewById(SHOW_PHONEBOOK_VIEW);
+        //todo if will need to show phonebook from somewhere else - rewrite this with 2nd parameter - view
+        showPhonebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent phonebook = new Intent(SettingsActivity.this, PhoneBookActivity.class);
+                startActivity(phonebook);
+            }
+        });
+    }
+
 
     /**
      * initialization of block
@@ -59,7 +81,7 @@ public class SettingsActivity extends AppCompatActivity {
      * @param activity setting activity
      */
     private void setAddPhoneNumberBlock(final Activity activity) {
-
+        //todo rewrite this method. Should create viewSwitcher with children, but not finding. Will be able to use in other places, like phoneBookActivity
         viewSwitcher = (ViewSwitcher) this.findViewById(VIEW_SWITCHER_ID);
         addNewEntryToPhonebook = (Button) this.findViewById(ADD_NEW_ENTRY_BUTTON_ID);
         submitAdding = (Button) this.findViewById(ADD_TO_PHONEBOOK_SUBMIT_BUTTON_ID);
@@ -93,13 +115,15 @@ public class SettingsActivity extends AppCompatActivity {
                 String phone = phoneView.getText().toString();
                 //todo: validate name and phone fields
 
+                //save phone to phonebook
                 PhonesKeeper phonesKeeper = PhonesKeeper.getInstance(activity);
                 phonesKeeper.addPhoneNumber(name, phone);
 
+                //switch viewSwitcher to addNewEntryButton
                 viewSwitcher.showPrevious();
+                //clean text from fields: name and phone
                 nameView.setText("");
                 phoneView.setText("");
-                Log.d("test", "size is" + phonesKeeper.getPhoneBookSize());
             }
         });
 
