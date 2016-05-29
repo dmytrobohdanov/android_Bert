@@ -13,6 +13,12 @@ import com.dmytro.bert.R;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Phone Book activity
+ *
+ * Displaying phone book
+ * provides ability to delete and edit it
+ */
 public class PhoneBookActivity extends AppCompatActivity {
     private final int LAYOUT_ID = R.id.phonebookLayout;
 

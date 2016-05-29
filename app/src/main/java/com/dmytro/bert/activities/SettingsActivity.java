@@ -21,7 +21,9 @@ public class SettingsActivity extends AppCompatActivity {
     private final int VIEW_SWITCHER_ID = R.id.viewSwitcher;
     private final int ADD_NEW_ENTRY_BUTTON_ID = R.id.addNewPhonenumber;
     private final int ADD_TO_PHONEBOOK_SUBMIT_BUTTON_ID = R.id.addToPhoneBookButton;
-    private final int SHOW_PHONEBOOK_VIEW = R.id.showPhoneBook;
+    private final int SHOW_PHONEBOOK_VIEW_ID = R.id.showPhoneBook;
+    private final int NAME_TO_ADD_EDITTEXT_ID = R.id.nameToAdd;
+    private final int PHONE_TO_ADD_EDITTEXT_ID = R.id.phoneToAdd;
 
     private ViewSwitcher viewSwitcher;
     private Button addNewEntryToPhonebook;
@@ -62,7 +64,7 @@ public class SettingsActivity extends AppCompatActivity {
      * @param activity
      */
     private void initializeShowPhonebookBlock(Activity activity) {
-        TextView showPhonebook = (TextView) activity.findViewById(SHOW_PHONEBOOK_VIEW);
+        TextView showPhonebook = (TextView) activity.findViewById(SHOW_PHONEBOOK_VIEW_ID);
         //todo if will need to show phonebook from somewhere else - rewrite this with 2nd parameter - view
         showPhonebook.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,9 +110,8 @@ public class SettingsActivity extends AppCompatActivity {
         submitAdding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //todo change ids to constants
-                EditText nameView = (EditText) activity.findViewById(R.id.nameToAdd);
-                EditText phoneView = (EditText) activity.findViewById(R.id.phoneToAdd);
+                EditText nameView = (EditText) activity.findViewById(NAME_TO_ADD_EDITTEXT_ID);
+                EditText phoneView = (EditText) activity.findViewById(PHONE_TO_ADD_EDITTEXT_ID);
 
                 String name = nameView.getText().toString();
                 String phone = phoneView.getText().toString();

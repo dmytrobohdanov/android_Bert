@@ -14,6 +14,12 @@ import android.widget.Button;
 import com.dmytro.bert.PhonesKeeper;
 import com.dmytro.bert.R;
 
+/**
+ * Main activity
+ *
+ * Keeps phone call buttons,
+ * user can call from it other activities on touch events
+ */
 public class MainActivity extends AppCompatActivity {
     //setting constants
     public static final String POLICE = "police";
