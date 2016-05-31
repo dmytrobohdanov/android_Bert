@@ -20,9 +20,9 @@
         android:layout_height="wrap_content"
         android:text="call"
         android:id="@+id/call1"
+        android:layout_marginBottom="186dp"
         android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/textView"
-        android:layout_marginBottom="201dp" />
+        android:layout_alignStart="@+id/settingsButton" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -32,4 +32,13 @@
         android:id="@+id/settingsButton"
         android:layout_below="@+id/textView"
         android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Check Map"
+        android:id="@+id/mapButton"
+        android:layout_above="@+id/call1"
+        android:layout_toEndOf="@+id/textView"
+        android:layout_marginBottom="90dp" />
 </RelativeLayout>

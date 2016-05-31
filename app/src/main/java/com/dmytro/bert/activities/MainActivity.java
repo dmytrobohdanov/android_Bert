@@ -40,6 +40,18 @@ public class MainActivity extends AppCompatActivity {
         //temp adding to phonebook:
         phonesKeeper.addPhoneNumber(POLICE, "111");
 
+
+        //map button, just for test
+        Button mapButton = (Button) this.findViewById(R.id.mapButton);
+        assert mapButton != null;
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mapIntent = new Intent(MainActivity.this, MapActivity.class);
+                startActivity(mapIntent);
+            }
+        });
+
         //set onClick to Settings button which opens settings activity
         Button settingsButton = (Button) this.findViewById(R.id.settingsButton);
         assert settingsButton != null;

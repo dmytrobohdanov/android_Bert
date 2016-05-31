@@ -7,4 +7,6 @@
     <string name="NameFieldHint">Name</string>
     <string name="addNewEntry">add new entry</string>
     <string name="addToPhonebookButton">add</string>
+    <string name="google_maps_key">AIzaSyAeiblgwac2WCZ2ib2RshXf7wQrl81pgqk</string>
+    <string name="title_activity_test_map">testMapActivity</string>
 </resources>
